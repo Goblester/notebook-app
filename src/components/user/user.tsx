@@ -18,10 +18,10 @@ export const User: React.FC<PropsType> = ({email, name, phone}) => {
   const phoneFilter = filterField === 'phone' ? filterValue : '';
 
   return (
-    <article>
+    <div>
       <p>name: <UserField value={name} matchValue={nameFilter} /></p>
       <p>email: <UserField value={email} matchValue={emailFilter} /></p>
       <p>phone:<UserField value={phone} matchValue={phoneFilter} /></p>
-    </article>
+    </div>
   )
 }

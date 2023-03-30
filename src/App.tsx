@@ -36,7 +36,7 @@ export default function App() {
             setFilterValue,
             setFilterField
         }}>
-            <main className="container">
+            <main className="container mx-auto flex flex-col items-center">
                 <Filter/>
                 <Users users={users}/>
             </main>

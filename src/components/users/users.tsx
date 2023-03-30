@@ -19,7 +19,7 @@ export const Users: React.FC<PropsType> = ({users}) => {
   const {filterValue, filterField} = useContext(filterContext);
 
   const filteredUsers = users.filter(getUserFilter(filterValue, filterField)).map(user => (
-    <li key={user.name}>
+    <li key={user.name} className="h-48 w-64 bg-gray-200 rounded-md drop-shadow-md">
       <User {...user} />
     </li>));
 
@@ -29,7 +29,7 @@ export const Users: React.FC<PropsType> = ({users}) => {
     )
   }
   
-  return <ul>
+  return <ul className="flex flex-wrap gap-4 mx-auto">
     {filteredUsers}
   </ul>
 }
