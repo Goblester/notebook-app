@@ -3,7 +3,11 @@
 module.exports = {
     content: ["./src/**/*.{html,js,ts,tsx}"],
     theme: {
-        extend: {},
+        extend: {
+            rotate: {
+                315: '315deg'
+            }
+        },
     },
     plugins: [],
 }
