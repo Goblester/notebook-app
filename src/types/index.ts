@@ -4,4 +4,6 @@ export type UserType = {
   phone: string;
 }
 
+export type Maybe<T> = T | null
+
 export type UserFieldsType = keyof UserType;

@@ -1,8 +1,7 @@
 import {usersSlice} from "./users";
+import {fetchUsers} from "./thunks/fetchUsers";
 
 
-export const {
-    removeUser
-} = usersSlice.actions;
+export const usersActions = {...usersSlice.actions, fetchUsers};
 
-export const userReducer = usersSlice.reducer;
+export const usersReducer = usersSlice.reducer;

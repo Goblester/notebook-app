@@ -3,30 +3,20 @@ import {Users} from './components/users/users'
 import {Filter} from './features/filter/filter';
 import {UserFieldsType, UserType} from './types'
 import {filterContext} from './store/contexts/filterContext';
+import {useDispatch} from "react-redux";
+import {AppDispatch} from "./store";
+import {usersActions} from "./store/users";
 
-const fetchUsers = async (): Promise<Array<UserType>> => {
-    try {
-        const response = await fetch('https://jsonplaceholder.typicode.com/users');
-        const data = await response.json();
-        return data;
-    } catch (e) {
-        return [];
-    }
-}
 
-const defaultUsers: Array<UserType> = [];
 
 export default function App() {
 
-    const [users, setUsers] = useState<Array<UserType>>(defaultUsers);
     const [filterValue, setFilterValue] = useState<string>('');
     const [filterField, setFilterField] = useState<UserFieldsType>('name');
-
+    const dispatch = useDispatch<AppDispatch>();
 
     useEffect(() => {
-        fetchUsers().then((users) => {
-            setUsers(users);
-        })
+        dispatch((usersActions.fetchUsers()));
     }, [])
 
     return (
@@ -38,7 +28,7 @@ export default function App() {
         }}>
             <main className="container mx-auto flex flex-col items-center">
                 <Filter/>
-                <Users users={users}/>
+                <Users />
             </main>
         </filterContext.Provider>
 
