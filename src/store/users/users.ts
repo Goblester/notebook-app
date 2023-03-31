@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import {UserType} from "../../types";
+import {fetchUsers} from "./thunks/fetchUsers";
 
 export interface UsersState {
     users: Array<UserType>
@@ -18,6 +19,9 @@ export const usersSlice = createSlice({
             state.users = state.users.filter((user) => user.name === action.payload);
         },
     },
+    extraReducers: builder => builder.addCase(fetchUsers.fulfilled, (state, action) => {
+        state.users = action.payload;
+    })
 })
 
 
