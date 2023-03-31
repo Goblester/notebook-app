@@ -13,7 +13,7 @@ Using the two in conjunction is one of the fastest ways to build a web app.
 By default, Replit runs the `dev` script, but you can configure it by changing the `run` field in the [configuration file](#.replit). Here are the vite docs for [serving production websites](https://vitejs.dev/guide/build.html)
 
 
-1. возможность удалять пользователя
+1. ~~возможность удалять пользователя~~
 2. возможность добавлять ( форма 3 поля телефон, имя, почта)
 3. простую валидацию (имя обязательное поле, телефон и почта опциональные)
 4. роутинг для избранных контактов (логика фильтрация таже)

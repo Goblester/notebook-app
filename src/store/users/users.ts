@@ -16,7 +16,7 @@ export const usersSlice = createSlice({
     initialState,
     reducers: {
         removeUser: (state, action:PayloadAction<string>) => {
-            state.users = state.users.filter((user) => user.name === action.payload);
+            state.users = state.users.filter((user) => user.name !== action.payload);
         },
     },
     extraReducers: builder => builder.addCase(fetchUsers.fulfilled, (state, action) => {
