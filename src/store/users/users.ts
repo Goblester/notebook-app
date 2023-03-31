@@ -1,5 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit'
-import type { PayloadAction } from '@reduxjs/toolkit'
+import {createSlice} from '@reduxjs/toolkit'
+import type {PayloadAction} from '@reduxjs/toolkit'
 import {UserType} from "../../types";
 import {fetchUsers} from "./thunks/fetchUsers";
 
@@ -15,9 +15,12 @@ export const usersSlice = createSlice({
     name: 'users',
     initialState,
     reducers: {
-        removeUser: (state, action:PayloadAction<string>) => {
+        removeUser: (state, action: PayloadAction<string>) => {
             state.users = state.users.filter((user) => user.name !== action.payload);
         },
+        addUser: ((state, action: PayloadAction<UserType>) => {
+            state.users.push(action.payload);
+        })
     },
     extraReducers: builder => builder.addCase(fetchUsers.fulfilled, (state, action) => {
         state.users = action.payload;
