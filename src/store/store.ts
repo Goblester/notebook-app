@@ -1,10 +1,12 @@
 import {configureStore} from "@reduxjs/toolkit";
 import {usersReducer} from "./users";
+import {filterReducer} from "./filter";
 
 
 export const store = configureStore({
     reducer: {
-        users: usersReducer
+        users: usersReducer,
+        filter: filterReducer,
     },
 })
 

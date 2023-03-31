@@ -1,9 +1,9 @@
-import {useContext} from "react";
-import {filterContext} from "../../store/contexts/filterContext";
+import React from "react";
 import {UserField} from '../userField/userField';
-import {useDispatch} from "react-redux";
-import {AppDispatch} from "../../store";
+import {useDispatch, useSelector} from "react-redux";
+import {AppDispatch} from "../../store/store";
 import {usersActions} from "../../store/users";
+import {getFilterField, getFilterValue} from "../../store/filter/selectors";
 
 type PropsType = {
     name: string;
@@ -11,10 +11,10 @@ type PropsType = {
     phone: string;
 }
 
-
 export const User: React.FC<PropsType> = ({email, name, phone}) => {
 
-    const {filterValue, filterField} = useContext(filterContext);
+    const filterValue = useSelector(getFilterValue);
+    const filterField = useSelector(getFilterField);
     const dispatch = useDispatch<AppDispatch>();
 
     const nameFilter = filterField === 'name' ? filterValue : '';
