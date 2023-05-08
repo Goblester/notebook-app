@@ -5,6 +5,7 @@ import {useDispatch} from "react-redux";
 import {AppDispatch} from "./store/store";
 import {usersActions} from "./store/users";
 import {NewUser} from "./features/newUser/newUser";
+import {Header} from "./components/header/header";
 
 
 export default function App() {
@@ -17,7 +18,7 @@ export default function App() {
 
     return (
         <div>
-            <header className="h-16 w-full drop-shadow-md bg-blue-200 p-5">Contacts</header>
+            <Header />
             <main className="container mx-auto flex mt-10">
                 <div className="flex flex-col items-center w-8/12">
                     <Filter/>

@@ -25,18 +25,23 @@ export const Filter: React.FC = () => {
     const debouncedSetFilterValue = useCallback(debounce(changeFilterValue, 1000), []);
 
     return (
-        <div>
+        <div className="flex justify-between gap-4">
             <input name="search"
                    value={value}
+                   placeholder="Search"
                    onChange={(e) => {
                        setValue(e.currentTarget.value)
                        debouncedSetFilterValue(e.currentTarget.value);
-                   }}/>
-            <select value={filterField} onChange={(e) => {
+                   }}
+                   className="border-gray-500 border-2 py-2 px-4  h-10 rounded-md"
+            />
+            <select value={filterField}
+                    onChange={(e) => {
                 changeFilterField(e.currentTarget.value as UserFieldsType);
                 changeFilterValue('');
                 setValue('');
-            }}>
+            }}
+                    className="border-gray-500 border-2 h-10 py-2 px-4 rounded-md">
                 {userFields.map((field) =>
                     <option value={field} key={field}>{field}</option>
                 )}
